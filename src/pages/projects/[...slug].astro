@@ -1,0 +1,74 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getEntry } from "astro:content";
+import formatDate from "../../utils";
+
+// for generating static paths
+// export async function getStaticPaths() {
+//   const allProjects: CollectionEntry<"project">[] = await getCollection("project");
+
+//   return allProjects.map((entry) => ({
+//     params: {
+//       slug: entry.slug,
+//     },
+//     props: { entry },
+//   }));
+// }
+
+const { slug } = Astro.params;
+if (!slug || slug === undefined) {
+  throw new Error("Slug is required but was not found.");
+}
+
+const entry = await getEntry("project", slug);
+
+if (!entry || entry === undefined) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await entry.render();
+---
+
+<MainLayout title={entry.data.title}>
+  <div class="single-project flex flex-col gap-4 w-4/5 mx-auto my-3">
+    <a
+      href="/projects"
+      class="p-2 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-700 hover:from-yellow-400 hover:to-orange-600 w-fit text-1xl font-medium"
+    >
+      All Projects
+    </a>
+
+    <div class="project-hero flex gap-4">
+      <h2 class="text-3xl font-medium">
+        {entry.data.title} -
+        {entry.data.role}
+      </h2>
+      <span class="bg-fuchsia-600 text-1xl p-2 rounded-lg w-fit">
+        {formatDate(entry.data.pubDate)}
+      </span>
+      <a
+        href={entry.data.githubLink}
+        class="p-2 font-semibold bg-green-400 w-fit inline-block rounded-lg"
+        >Github Link</a
+      >
+      <a
+        href="#"
+        class="p-2 font-semibold bg-green-400 inline-block rounded-lg w-fit"
+      >
+        {entry.data.website}
+      </a>
+    </div>
+    <Content />
+  </div>
+</MainLayout>
+
+<style>
+  h1 {
+    font-size: xx-large;
+  }
+
+  ul {
+    list-style: none;
+    display: block;
+  }
+</style>

@@ -1,0 +1,95 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+const allProjects: CollectionEntry<"project">[] =
+  await getCollection("project");
+import formatDate from "../../utils";
+---
+
+<MainLayout title="Projects">
+  <main>
+    <!-- {allProjects} -->
+    <div class="projects-layout flex flex-col itmes-center mx-auto w-4/5 p-4">
+      <h1 class="text-4xl pb-6 font-medium">My Recent Projects</h1>
+      <ul class="projects-list flex flex-wrap gap-6">
+        {
+          allProjects.map((project) => (
+            <li>
+              <div class="project p-2 flex flex-col gap-2">
+                <div class="project-hero flex gap-4">
+                  <h2 class="text-3xl font-medium">
+                    <a
+                      href={"/projects/" + project.slug}
+                      class="text-orange-950 bg-red-400 px-2 rounded-lg"
+                    >
+                      {project.data.title} -
+                      <span class="text-3xl font-medium">
+                        {project.data.role}
+                      </span>
+                    </a>
+                  </h2>
+                  <span class="bg-fuchsia-600 text-1xl p-2 rounded-lg">
+                    {formatDate(project.data.pubDate)}
+                  </span>
+                  <a
+                    href={project.data.githubLink}
+                    class="p-2 font-semibold bg-green-400 w-auto inline-block rounded-lg"
+                  >Project Github Link</a>
+                  <a
+                    href="#"
+                    class="p-2 font-semibold bg-green-400 w-auto inline-block rounded-lg"
+                  >
+                    {project.data.website}
+                  </a>
+                </div>
+                <p class="font-semibold">{project.data.description}</p>
+                <ul class="tags flex gap-2">
+                  {project.data.tags.map((tag: string) => (
+                    <li class="bg-yellow-500 font-medium py-1 rounded px-2">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))
+        }
+
+        <!-- 
+  
+        
+     
+        <li>
+          <div class="project p-2 flex flex-col gap-2">
+            <div class="project-hero flex gap-4">
+              <h2 class="text-3xl font-medium">Project 6</h2>
+              <span class="bg-fuchsia-600 text-1xl p-2 rounded-lg"
+                >2024 - 4 - 12</span
+              >
+              <a
+                href="#"
+                class="p-2 font-semibold bg-green-400 w-auto inline-block"
+                >Project link</a
+              >
+            </div>
+            <p class="font-semibold">
+              short description for project 1 lorem Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Accusamus aliquam, tempora sed
+              soluta officia cumque facilis quo. Quam, neque necessitatibus
+              itaque soluta perspiciatis est veritatis, saepe eum aperiam
+              similique nam!
+            </p>
+            <ul class="tags flex gap-2">
+              <li class="bg-yellow-500 font-medium py-1 rounded px-2">
+                javascript
+              </li>
+              <li class="bg-purple-500 font-medium py-1 rounded px-2">php</li>
+              <li class="bg-red-500 font-medium py-1 rounded px-2">laravel</li>
+            </ul>
+          </div>
+        </li> -->
+      </ul>
+    </div>
+  </main>
+</MainLayout>

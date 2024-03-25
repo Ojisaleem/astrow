@@ -1,0 +1,24 @@
+---
+import { PORTO_X, PORTO_INSTA } from "../socials";
+---
+
+<footer class="flex flex-col items-center py-4">
+  <div
+    class="main-footer font-bold text-3xl flex gap-3 bg-gradient-to-r from-cyan-700 via-teal-400 to-blue-700 text-transparent bg-clip-text"
+  >
+    &copy; Ojisaleem {new Date().getFullYear()}
+
+    <img src="/images/git.png" width={35} height={10} alt="github-image" />
+    <a href={PORTO_INSTA}
+      ><img
+        src="/images/instagram-icon.webp"
+        width={35}
+        height={10}
+        alt="instagram-image"
+      /></a
+    >
+    <a href={PORTO_X}
+      ><img src="/images/x.webp" width={35} height={10} alt="x-image" /></a
+    >
+  </div>
+</footer>

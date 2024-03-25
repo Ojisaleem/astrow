@@ -1,0 +1,114 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import SayHi from "../components/SayHi.astro";
+---
+
+<MainLayout title="About Me">
+  <div class="w-4/5 mx-auto my-6">
+    <h1 class="text-3xl font-bold text-center">About Me</h1>
+    <div class="info-hero flex items-center p-4 gap-10">
+      <img src="/images/panther.png" alt="my-image" />
+      <div class="right flex flex-col">
+        <p class="font-medium text-2xl">
+          I am a Software Developer currently residing in Kaduna, State Nigeria.
+        </p>
+        <div class="doings flex gap-3 font-medium mt-2">
+          <span
+            class="bg-gradient-to-tr from-yellow-500 via-orange-500 to-purple-500 px-2 rounded-xl"
+            >Writer</span
+          >
+          <span
+            class="bg-gradient-to-tr from-yellow-500 via-orange-500 to-purple-500 px-2 rounded-xl"
+            >Full Stack Dev</span
+          >
+          <span
+            class="bg-gradient-to-tr from-yellow-500 via-orange-500 to-purple-500 px-2 rounded-xl"
+            >API Dev</span
+          >
+        </div>
+      </div>
+    </div>
+    <hr class="my-6" />
+    <div class="certifications">
+      <h2 class="text-4xl">Certifications:</h2>
+      <ul class="flex flex-col">
+        <li class="text-2xl">Bsc Computer science - Kaduna state University</li>
+        <li class="text-2xl">Cisco Networking - Cisco Networking Academy</li>
+        <li class="text-2xl">Data Science Certificate - Kaggle</li>
+      </ul>
+    </div>
+
+    <hr class="my-6" />
+
+    <div class="skills flex flex-col gap-3 mb-3">
+      <h2 class="text-4xl">My Skills:</h2>
+      <ul class="flex justify-between">
+        <li class="w-24 h-24">
+          <img
+            src="/images/skills/astro.png"
+            alt="skill-logo"
+            class="w-full h-auto"
+          />
+        </li>
+        <li class="w-24 h-24">
+          <img
+            src="/images/skills/laravel.png"
+            alt="skill-logo"
+            class="w-full h-auto"
+          />
+        </li>
+        <li class="w-24 h-24">
+          <img
+            src="/images/skills/angular.png"
+            alt="skill-logo"
+            class="w-full h-auto"
+          />
+        </li>
+        <li class="w-24 h-24">
+          <img
+            src="/images/skills/node.png"
+            alt="skill-logo"
+            class="w-full h-auto"
+          />
+        </li>
+        <li class="w-24 h-24">
+          <img
+            src="/images/skills/python.png"
+            alt="skill-logo"
+            class="w-full h-auto"
+          />
+        </li>
+        <li class="w-24 h-24">
+          <img
+            src="/images/skills/react.png"
+            alt="skill-logo"
+            class="w-full h-auto"
+          />
+        </li>
+        <li class="w-24 h-24">
+          <img
+            src="/images/skills/vue.png"
+            alt="skill-logo"
+            class="w-full h-auto"
+          />
+        </li>
+        <li class="w-24 h-24">
+          <img
+            src="/images/skills/svelte.png"
+            alt="skill-logo"
+            class="w-full h-auto"
+          />
+        </li>
+      </ul>
+    </div>
+
+    <hr class="my-6" />
+
+    <div class="end flex justify-center items-center gap-4">
+      <p class="text-2xl font-medium">
+        Interested in working together or just want to
+      </p>
+      <SayHi />
+    </div>
+  </div>
+</MainLayout>
