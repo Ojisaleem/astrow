@@ -1,5 +1,5 @@
 ---
-import { PORTO_X, PORTO_INSTA } from "../socials";
+import { PORTO_X, PORTO_INSTA, PORTO_GITHUB } from "../socials";
 ---
 
 <footer class="flex flex-col items-center py-4">
@@ -8,17 +8,24 @@ import { PORTO_X, PORTO_INSTA } from "../socials";
   >
     &copy; Ojisaleem {new Date().getFullYear()}
 
-    <img src="/images/git.png" width={35} height={10} alt="github-image" />
-    <a href={PORTO_INSTA}
-      ><img
-        src="/images/instagram-icon.webp"
-        width={35}
-        height={10}
-        alt="instagram-image"
-      /></a
-    >
-    <a href={PORTO_X}
-      ><img src="/images/x.webp" width={35} height={10} alt="x-image" /></a
-    >
+    <a
+      href={PORTO_GITHUB}
+      target="_blank"
+      <img
+      src="/images/git.png"
+      width={35}
+      height={10}
+      alt="github-image"></a>
   </div>
+  <a href={PORTO_INSTA} target="_blank"
+    ><img
+      src="/images/instagram-icon.webp"
+      width={35}
+      height={10}
+      alt="instagram-image"
+    /></a
+  >
+  <a href={PORTO_X} target="_blank"
+    ><img src="/images/x.webp" width={35} height={10} alt="x-image" /></a
+  >
 </footer>
